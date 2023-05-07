@@ -11,16 +11,16 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Data
-public class Account extends BaseEntity{
+public class Loan extends BaseEntity{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String AccountName;
-    Integer balance;
+    Integer LoanId;
+    Double TotalAmount;
+     Double MonthlyAmount;
+
+
     @ManyToOne
-    @JoinColumn(name = "Customer_Id", referencedColumnName = "CustomerId")
+    @JoinColumn(name="Customer_Id", referencedColumnName = "CustomerId")
     Customer customer;
-
-
-
 }

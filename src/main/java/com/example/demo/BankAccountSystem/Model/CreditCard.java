@@ -11,16 +11,15 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Data
-public class Account extends BaseEntity{
+public class CreditCard extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String AccountName;
-    Integer balance;
+    Integer CreditCardId;
+    String Name;
+    Integer CreditCardNumber;
+    Integer ExpireDate;
     @ManyToOne
-    @JoinColumn(name = "Customer_Id", referencedColumnName = "CustomerId")
+    @JoinColumn(name="Customer_Id", referencedColumnName = "CustomerId")
     Customer customer;
-
-
-
 }
