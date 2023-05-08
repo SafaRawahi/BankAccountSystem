@@ -16,7 +16,9 @@ public class Account extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String AccountName;
-    Integer balance;
+    Double balance;
+    Double intrest;
+
     @ManyToOne
     @JoinColumn(name = "Customer_Id", referencedColumnName = "CustomerId")
     Customer customer;
