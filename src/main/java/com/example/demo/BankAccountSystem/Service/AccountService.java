@@ -1,4 +1,34 @@
 package com.example.demo.BankAccountSystem.Service;
 
+
+import com.example.demo.BankAccountSystem.Model.Account;
+import com.example.demo.BankAccountSystem.Model.Customer;
+import com.example.demo.BankAccountSystem.Repository.AccountRepository;
+import com.example.demo.BankAccountSystem.Repository.CustomerRepository;
+import com.example.demo.BankAccountSystem.RequestObject.AccountRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class AccountService {
+
+    @Autowired
+    AccountRepository accountRepository;
+    @Autowired
+    CustomerRepository customerRepository;
+
+//         Create a new account for a customer
+    public void addAccount(AccountRequest account) {
+        Double interestVariable = 2.5; // variable for interest
+        Account accountInfo = new Account();
+        accountInfo.setAccountName(account.getAccountName());
+        accountInfo.setBalance(account.getBalance());
+        accountInfo.setIntrest(account.getBalance()* interestVariable);// balance * interest Variable to get the profit
+        Integer id = accountRepository.findIdByPhoneNumber(account.getPhoneNumber()); // find ID by unique variable (Phone)
+        Customer customerId = customerRepository.findById(id).get() ;
+        accountInfo.setCustomer(customerId);
+        accountInfo.setIsActive(account.isActive());
+        accountRepository.save(accountInfo);
+
+    }
 }

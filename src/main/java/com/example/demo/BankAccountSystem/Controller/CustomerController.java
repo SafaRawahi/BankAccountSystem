@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomerController {
     @Autowired
     CustomerService customerService;
+
+
+//    adding more customer
     @RequestMapping(value = "AddCustomer",method = RequestMethod.POST)
     public String addCustomer (@RequestBody Customer customer){
         try {
