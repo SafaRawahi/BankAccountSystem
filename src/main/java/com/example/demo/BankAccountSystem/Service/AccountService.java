@@ -31,4 +31,9 @@ public class AccountService {
         accountRepository.save(accountInfo);
 
     }
+    //    Retrieve the account balance for a specific account by id
+    public double getBalanceForAccount(Integer id) {
+
+        return accountRepository.getBalanceForAccount(id);
+    }
 }
