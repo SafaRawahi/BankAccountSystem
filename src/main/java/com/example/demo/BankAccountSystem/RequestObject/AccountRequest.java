@@ -16,6 +16,8 @@ public class AccountRequest {
     Double balance;
     boolean isActive;
     String phoneNumber;
+
+    Integer customer_Id;
 }
 
 

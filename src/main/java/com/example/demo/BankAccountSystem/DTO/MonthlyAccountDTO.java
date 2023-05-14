@@ -9,13 +9,13 @@ import lombok.Setter;
 @Setter
 @Getter
 public class MonthlyAccountDTO {
-   Integer CustomerId;
+   Integer customer_Id;
     String phoneNumber;
     Double intrest;
     Double balance;
 
-    public MonthlyAccountDTO(Integer customerId, String phoneNumber, Double intrest, Double balance) {
-        CustomerId = customerId;
+    public MonthlyAccountDTO(Integer customer_Id, String phoneNumber, Double intrest, Double balance) {
+        this.customer_Id = customer_Id;
         this.phoneNumber = phoneNumber;
         this.intrest = intrest;
         this.balance = balance;

@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.1.final using JasperReports Library version 6.20.1-7584acb244139816654f64e2fd57a00d3e31921e  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MonthlyAccountReport" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="76a3ee4a-00d3-4858-8154-0a7bd030c207">
-    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
-    <queryString language="SQL">
-        <![CDATA[SELECT * FROM Orders]]>
-    </queryString>
-    <field name="CustomerId" class="java.lang.Integer">
+
+    <field name="customer_Id" class="java.lang.Integer">
 
     </field>
     <field name="phoneNumber" class="java.lang.String">
@@ -19,7 +15,7 @@
 
     </field>
     <background>
-        <band/>
+        <band height="122"/>
     </background>
     <title>
         <band height="72">
@@ -57,7 +53,7 @@
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Account ID]]></text>
+                <text><![CDATA[Customer Id]]></text>
             </staticText>
             <staticText>
                 <reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9c8873a6-7f0d-4e62-9950-8fa98f018a12">
@@ -66,25 +62,25 @@
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Account Name]]></text>
+                <text><![CDATA[phone Number]]></text>
             </staticText>
             <staticText>
-                <reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3c3f29ee-dc2e-4fd0-93ca-1b2907469c9f">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cef1502f-ddd4-44a7-8d6b-01cb5254fc22"/>
-                </reportElement>
-                <textElement textAlignment="Center">
-                    <font size="14" isBold="true"/>
-                </textElement>
-                <text><![CDATA[Balance]]></text>
-            </staticText>
-            <staticText>
-                <reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="663ee31e-50cb-4812-94c4-6a29be7ea021">
+                <reportElement mode="Opaque" x="280" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="663ee31e-50cb-4812-94c4-6a29be7ea021">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1f19f87-ac15-4929-8166-e0a7febbd71d"/>
                 </reportElement>
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
                 <text><![CDATA[Intrest]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="420" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3c3f29ee-dc2e-4fd0-93ca-1b2907469c9f">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cef1502f-ddd4-44a7-8d6b-01cb5254fc22"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Balance]]></text>
             </staticText>
         </band>
     </columnHeader>
@@ -100,7 +96,7 @@
                 <textElement>
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{CustomerId}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{customer_Id}]]></textFieldExpression>
             </textField>
             <textField textAdjust="StretchHeight">
                 <reportElement x="138" y="0" width="138" height="20" uuid="880f8180-5cb2-4c4e-9f5d-32eb9044554e">

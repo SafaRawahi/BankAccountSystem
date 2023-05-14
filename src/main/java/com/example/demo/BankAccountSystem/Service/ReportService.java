@@ -1,5 +1,6 @@
 package com.example.demo.BankAccountSystem.Service;
 
+import com.example.demo.BankAccountSystem.DTO.MonthlyAccountDTO;
 import com.example.demo.BankAccountSystem.Model.Account;
 import com.example.demo.BankAccountSystem.Repository.AccountRepository;
 import com.example.demo.BankAccountSystem.Repository.CustomerRepository;
@@ -13,6 +14,7 @@ import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,12 +34,18 @@ public class ReportService {
 
 //    public String generateMonthlyAccountReport() throws FileNotFoundException, JRException {    //generate Monthly Account Report
 //
-//        List<Account> accountList = accountRepository.ge;
-//        List<>
+//        List<Account> accountList = accountRepository.getAllAccount();
+//        List<MonthlyAccountDTO> monthlyAccountDTOS =new ArrayList<>();
+//        for (Account account : accountList){
+//            Integer Customer_Id = account.getCustomer().getCustomerId();
+//            String phoneNumber = account.getCustomer().getPhoneNumber();
+//            Double intrest = account.getIntrest();
+//            Double balance = account.getBalance();
+//            MonthlyAccountDTO monthlyAccountDTO=new MonthlyAccountDTO( account.getCustomer().getCustomerId(),account.getCustomer().getPhoneNumber(),account.getIntrest(),account.getBalance());
+//            monthlyAccountDTOS.add(monthlyAccountDTO);
+//        }
 //
-//
-//
-//    File file = ResourceUtils.getFile("C:\\Users\\user017\\IdeaProjects\\demo.BankAccountSystem\\MonthlyAccountReport.jrxml");
+//    File file = ResourceUtils.getFile("classpath:MonthlyAccountReport.jrxml");
 //    JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
 //    JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(accountList);
 //    Map<String, Object> paramters = new HashMap<>();

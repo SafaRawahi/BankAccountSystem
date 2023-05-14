@@ -5,10 +5,7 @@ import com.example.demo.BankAccountSystem.Model.Customer;
 import com.example.demo.BankAccountSystem.RequestObject.UpdateCustomerInfo;
 import com.example.demo.BankAccountSystem.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CustomerController {
@@ -38,5 +35,12 @@ public class CustomerController {
         }
     }
 
+
+    @RequestMapping(value = "getById", method = RequestMethod.GET)     //get Customer By Id
+    public Customer getCustomerById(@RequestParam Integer customerId){
+      Customer customer = customerService.getCustomerById(customerId);
+      return customer;
+
+    }
 
 }

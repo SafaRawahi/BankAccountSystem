@@ -20,7 +20,7 @@ public class Account extends BaseEntity{
     Double intrest;
 
     @ManyToOne
-    @JoinColumn(name = "Customer_Id", referencedColumnName = "CustomerId")
+    @JoinColumn(name = "Customer_Id", referencedColumnName = " CustomerId")
     Customer customer;
 
 

@@ -40,5 +40,9 @@ public class CustomerService {
         }
 
 
+    public Customer getCustomerById(Integer customerId) {
+        Customer customer = customerRepository.getCustomerById(customerId);
+        return customer;
     }
+}
 
