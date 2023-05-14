@@ -20,8 +20,8 @@ import java.util.Map;
 
 @Service
 public class ReportService {
-    public static final String pathToReports ="C:\\Users\\user017\\Downloads\\BankAccountReports";
-            @Autowired
+    public static final String pathToReports = "C:\\Users\\user017\\Downloads\\BankAccountReports";
+    @Autowired
     AccountRepository accountRepository;
     @Autowired
     CustomerRepository customerRepository;
@@ -30,18 +30,22 @@ public class ReportService {
     @Autowired
     TransactionRepository transactionRepository;
 
-    public String generateMonthlyAccountReport() throws FileNotFoundException, JRException {    //generate Monthly Account Report
-        List<Account> accountList = accountRepository.findAll();
-        File file = ResourceUtils.getFile("classpath:MonthlyAccountReport.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(accountList);
-        Map<String, Object> paramters = new HashMap<>();
-        paramters.put("CreatedBy", "MyName");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, paramters, dataSource);
-        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\Monthly_Account_Report.pdf");
-        return "Report generated : " + pathToReports + "\\Monthly_Account_Report.pdf";
-    }
-
+//    public String generateMonthlyAccountReport() throws FileNotFoundException, JRException {    //generate Monthly Account Report
+//
+//        List<Account> accountList = accountRepository.ge;
+//        List<>
+//
+//
+//
+//    File file = ResourceUtils.getFile("C:\\Users\\user017\\IdeaProjects\\demo.BankAccountSystem\\MonthlyAccountReport.jrxml");
+//    JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+//    JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(accountList);
+//    Map<String, Object> paramters = new HashMap<>();
+//        paramters.put("CreatedBy","MyName");
+//    JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, paramters, dataSource);
+//        JasperExportManager.exportReportToPdfFile(jasperPrint,pathToReports +"\\Monthly_Account_Report.pdf");
+//        return"Report generated : "+pathToReports +"\\Monthly_Account_Report.pdf";
+//}
 
 
 }
