@@ -6,6 +6,7 @@ import com.example.demo.BankAccountSystem.Model.Customer;
 import com.example.demo.BankAccountSystem.RequestObject.AccountRequest;
 import com.example.demo.BankAccountSystem.Service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,6 +32,13 @@ public class AccountController {
     public double getBalanceForAccount(@RequestParam Integer id) {
 
         return accountService.getBalanceForAccount(id);
+    }
+
+    // Calculate the interest on the account balance.
+    @PostMapping("/calculate-interest")
+    public ResponseEntity<String> calculateInterest() {
+        accountService.calculateInterest();
+        return ResponseEntity.ok("Interest calculated successfully");
     }
 
 

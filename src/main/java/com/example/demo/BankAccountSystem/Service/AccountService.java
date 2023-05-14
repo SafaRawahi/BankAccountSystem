@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class AccountService {
@@ -39,4 +40,21 @@ public class AccountService {
 
         return accountRepository.getBalanceForAccount(id);
     }
+
+    //Calculate the interest on the account balance.
+    public void calculateInterest() {
+        List<Account> accounts = accountRepository.findAll();
+        for (Account account : accounts) {
+            double balance = account.getBalance();
+            double interestRate = account.getIntrest();
+            double intrests = balance * interestRate;
+
+            account.setIntrest(intrests);
+        }
+
+        accountRepository.saveAll(accounts);
+    }
+
+
+
 }
