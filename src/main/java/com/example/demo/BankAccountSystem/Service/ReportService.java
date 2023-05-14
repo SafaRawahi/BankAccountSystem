@@ -32,28 +32,28 @@ public class ReportService {
     @Autowired
     TransactionRepository transactionRepository;
 
-//    public String generateMonthlyAccountReport() throws FileNotFoundException, JRException {    //generate Monthly Account Report
-//
-//        List<Account> accountList = accountRepository.getAllAccount();
-//        List<MonthlyAccountDTO> monthlyAccountDTOS =new ArrayList<>();
-//        for (Account account : accountList){
-//            Integer Customer_Id = account.getCustomer().getCustomerId();
-//            String phoneNumber = account.getCustomer().getPhoneNumber();
-//            Double intrest = account.getIntrest();
-//            Double balance = account.getBalance();
-//            MonthlyAccountDTO monthlyAccountDTO=new MonthlyAccountDTO( account.getCustomer().getCustomerId(),account.getCustomer().getPhoneNumber(),account.getIntrest(),account.getBalance());
-//            monthlyAccountDTOS.add(monthlyAccountDTO);
-//        }
-//
-//    File file = ResourceUtils.getFile("classpath:MonthlyAccountReport.jrxml");
-//    JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-//    JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(accountList);
-//    Map<String, Object> paramters = new HashMap<>();
-//        paramters.put("CreatedBy","MyName");
-//    JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, paramters, dataSource);
-//        JasperExportManager.exportReportToPdfFile(jasperPrint,pathToReports +"\\Monthly_Account_Report.pdf");
-//        return"Report generated : "+pathToReports +"\\Monthly_Account_Report.pdf";
-//}
+    public String generateMonthlyAccountReport() throws FileNotFoundException, JRException {    //generate Monthly Account Report
+
+        List<Account> accountList = accountRepository.getAllAccount();
+        List<MonthlyAccountDTO> monthlyAccountDTOS =new ArrayList<>();
+        for (Account account : accountList){
+            Integer Customer_Id = account.getCustomer().getCustomerId();
+            String phoneNumber = account.getCustomer().getPhoneNumber();
+            Double intrest = account.getIntrest();
+            Double balance = account.getBalance();
+            MonthlyAccountDTO monthlyAccountDTO=new MonthlyAccountDTO( account.getCustomer().getCustomerId(),account.getCustomer().getPhoneNumber(),account.getIntrest(),account.getBalance());
+            monthlyAccountDTOS.add(monthlyAccountDTO);
+        }
+
+    File file = ResourceUtils.getFile("classpath:MonthlyAccountReport.jrxml");
+    JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+    JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(accountList);
+    Map<String, Object> paramters = new HashMap<>();
+        paramters.put("CreatedBy","MyName");
+    JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, paramters, dataSource);
+        JasperExportManager.exportReportToPdfFile(jasperPrint,pathToReports +"\\Monthly_Account_Report.pdf");
+        return"Report generated : "+pathToReports +"\\Monthly_Account_Report.pdf";
+}
 
 
 }

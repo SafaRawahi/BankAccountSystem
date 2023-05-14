@@ -15,9 +15,9 @@ public class ReportController {
     @Autowired
     ReportService reportService;
 
-//    @RequestMapping(value = "MonthlyAccountReport")                //generate Monthly Account Report
-//    public String generateMonthlyAccountReport() throws JRException, FileNotFoundException {
-//        return reportService.generateMonthlyAccountReport();
-//    }
+    @RequestMapping(value = "MonthlyAccountReport")                //generate Monthly Account Report
+    public String generateMonthlyAccountReport() throws JRException, FileNotFoundException {
+        return reportService.generateMonthlyAccountReport();
+    }
 
 }
