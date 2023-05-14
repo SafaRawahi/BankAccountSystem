@@ -57,4 +57,7 @@ public class AccountService {
 
 
 
+    public List<Account> getAllAccount() {      //getAllAccount
+        return accountRepository.getAllAccount();
+    }
 }

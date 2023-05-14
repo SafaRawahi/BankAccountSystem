@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
     @Query(value = "SELECT customer_Id FROM customer WHERE phone_number = :phone_number", nativeQuery = true)
@@ -20,4 +22,6 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
     Integer getAccountByAccountName(@Param("accountName") String accountName);
 
 
+@Query(value = " SELECT a from Account a")     //getAllAccount
+    List<Account> getAllAccount();
 }

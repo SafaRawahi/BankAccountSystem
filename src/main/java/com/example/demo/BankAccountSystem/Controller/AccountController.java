@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 public class AccountController {
     @Autowired
@@ -39,6 +42,13 @@ public class AccountController {
     public ResponseEntity<String> calculateInterest() {
         accountService.calculateInterest();
         return ResponseEntity.ok("Interest calculated successfully");
+    }
+    @RequestMapping(value = "getAll", method = RequestMethod.GET)       //getAll
+    public List<Account> gerAllAccounts(){
+
+        List<Account> accountList=new ArrayList<>();
+        accountList= accountService.getAllAccount();
+        return accountList;
     }
 
 
