@@ -10,6 +10,6 @@ import lombok.Setter;
 @Getter
 public class TransactionRequest  {
     private Double amount;
-    private String AccountName;
+    private String accountName;
     private boolean isActive;
 }

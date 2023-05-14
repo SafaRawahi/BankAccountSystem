@@ -9,6 +9,8 @@ import com.example.demo.BankAccountSystem.RequestObject.AccountRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class AccountService {
 
@@ -23,6 +25,7 @@ public class AccountService {
         Account accountInfo = new Account();
         accountInfo.setAccountName(account.getAccountName());
         accountInfo.setBalance(account.getBalance());
+        accountInfo.setCreatedDate(new Date());
         accountInfo.setIntrest(account.getBalance()* interestVariable);// balance * interest Variable to get the profit
         Integer id = accountRepository.findIdByPhoneNumber(account.getPhoneNumber()); // find ID by unique variable (Phone)
         Customer customerId = customerRepository.findById(id).get() ;

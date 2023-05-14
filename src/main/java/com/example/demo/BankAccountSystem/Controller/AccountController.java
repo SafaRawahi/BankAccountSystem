@@ -29,6 +29,7 @@ public class AccountController {
     //    Retrieve the account balance for a specific account by id
     @RequestMapping(value = "getBalanceForAccount", method = RequestMethod.GET)
     public double getBalanceForAccount(@RequestParam Integer id) {
+
         return accountService.getBalanceForAccount(id);
     }
 

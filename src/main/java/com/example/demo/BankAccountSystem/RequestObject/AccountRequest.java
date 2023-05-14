@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 @Setter
 @Data
 public class AccountRequest {
-    String AccountName;
+    String accountName;
     Double balance;
     boolean isActive;
     String phoneNumber;

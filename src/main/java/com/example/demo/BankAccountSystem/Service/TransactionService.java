@@ -17,6 +17,8 @@ public class TransactionService {
 
     @Autowired
     AccountRepository accountRepository;
+
+    //Update the account balance when a transaction is made
     public String createTransaction(TransactionRequest transactionRequest) {
         Transaction transaction = new Transaction();
         transaction.setAmount(transactionRequest.getAmount());
