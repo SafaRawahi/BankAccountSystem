@@ -37,17 +37,17 @@ public class ReportService {
         List<Account> accountList = accountRepository.getAllAccount();
         List<MonthlyAccountDTO> monthlyAccountDTOS =new ArrayList<>();
         for (Account account : accountList){
-            Integer Customer_Id = account.getCustomer().getCustomerId();
+            Integer customer_Id = account.getCustomer().getCustomerId();
             String phoneNumber = account.getCustomer().getPhoneNumber();
             Double intrest = account.getIntrest();
             Double balance = account.getBalance();
-            MonthlyAccountDTO monthlyAccountDTO=new MonthlyAccountDTO( account.getCustomer().getCustomerId(),account.getCustomer().getPhoneNumber(),account.getIntrest(),account.getBalance());
+            MonthlyAccountDTO monthlyAccountDTO=new MonthlyAccountDTO(customer_Id,phoneNumber,intrest,balance);
             monthlyAccountDTOS.add(monthlyAccountDTO);
         }
 
     File file = ResourceUtils.getFile("classpath:MonthlyAccountReport.jrxml");
     JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-    JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(accountList);
+    JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(monthlyAccountDTOS);
     Map<String, Object> paramters = new HashMap<>();
         paramters.put("CreatedBy","MyName");
     JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, paramters, dataSource);
